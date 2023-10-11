@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { HttpError } from './http-error';
-import { TokenPayload } from './token';
+import { HttpError } from './http-error.js';
+import { TokenPayload } from './token.js';
 
 export class Auth {
   static secret = process.env.TOKEN_SECRET!;

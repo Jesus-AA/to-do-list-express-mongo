@@ -1,9 +1,15 @@
-import { User } from '../entities/user';
-import { HttpError } from '../types/http-error';
-import { Repository } from './repository';
-import { UserModel } from './user-mongo-model';
+import createDebug from 'debug';
+import { User } from '../entities/user.js';
+import { HttpError } from '../types/http-error.js';
+import { Repository } from './repository.js';
+import { UserModel } from './user-mongo-model.js';
 
+const debug = createDebug('PF11:RepoUserMongoRepository');
 export class UserMongoRepository implements Repository<User> {
+  constructor() {
+    debug('Instantiated');
+  }
+
   async getAll(): Promise<User[]> {
     const data = await UserModel.find().exec();
     return data;

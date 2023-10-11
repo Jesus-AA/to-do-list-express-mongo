@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express, { Request, Response } from 'express';
 import morgan from 'morgan';
+import { userRouter } from './router/user.router.js';
 
 export const app = express();
 
@@ -13,3 +14,5 @@ app.get('/', (req: Request, res: Response) => {
   res.write('<h1>To-Do-List-Server</h1>');
   res.end();
 });
+
+app.use('/users', userRouter);

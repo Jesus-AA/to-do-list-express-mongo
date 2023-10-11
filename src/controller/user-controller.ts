@@ -1,14 +1,17 @@
+import createDebug from 'debug';
 import { NextFunction, Request, Response } from 'express';
-import { User, UserLoginData } from '../entities/user';
-import { Repository } from '../repository/repository';
-import { Auth } from '../types/auth';
-import { HttpError } from '../types/http-error';
-import { TokenPayload } from '../types/token';
-import { Controller } from './controller';
+import { User, UserLoginData } from '../entities/user.js';
+import { Repository } from '../repository/repository.js';
+import { Auth } from '../types/auth.js';
+import { HttpError } from '../types/http-error.js';
+import { TokenPayload } from '../types/token.js';
+import { Controller } from './controller.js';
 
+const debug = createDebug('PF11:Controller: UserController');
 export class UserController extends Controller<User> {
   constructor(protected repo: Repository<User>) {
     super(repo);
+    debug('Instantiated');
   }
 
   async login(req: Request, res: Response, next: NextFunction) {
