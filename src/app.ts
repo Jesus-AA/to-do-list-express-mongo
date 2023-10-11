@@ -13,5 +13,3 @@ app.get('/', (req: Request, res: Response) => {
   res.write('<h1>To-Do-List-Server</h1>');
   res.end();
 });
-
-app.use('/todolist');
