@@ -1,8 +1,8 @@
 import createDebug from 'debug';
-import { Task } from '../entities/task';
-import { HttpError } from '../types/http-error';
-import { Repository } from './repository';
-import { TaskModel } from './task-mongo-model';
+import { Task } from '../entities/task.js';
+import { HttpError } from '../types/http-error.js';
+import { Repository } from './repository.js';
+import { TaskModel } from './task-mongo-model.js';
 
 const debug = createDebug('TDL10:RepoReviewMongoRepository');
 

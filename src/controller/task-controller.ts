@@ -1,9 +1,9 @@
 import createDebug from 'debug';
 import { NextFunction, Request, Response } from 'express';
-import { Task } from '../entities/task';
-import { Repository } from '../repository/repository';
-import { UserMongoRepository } from '../repository/user-mongo-repository';
-import { Controller } from './controller';
+import { Task } from '../entities/task.js';
+import { Repository } from '../repository/repository.js';
+import { UserMongoRepository } from '../repository/user-mongo-repository.js';
+import { Controller } from './controller.js';
 
 const debug = createDebug('TDL10:TaskController');
 
