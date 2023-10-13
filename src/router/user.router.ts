@@ -10,6 +10,7 @@ const repo = new UserMongoRepository();
 const userController = new UserController(repo);
 export const userRouter = createRouter();
 
+userRouter.delete('/:id', userController.delete.bind(userController));
 userRouter.patch('/login', userController.login.bind(userController));
 userRouter.post(
   '/register',
@@ -19,3 +20,4 @@ userRouter.post(
   }
 );
 userRouter.get('/', userController.getAll.bind(userController));
+userRouter.get('/:id', userController.getById.bind(userController));

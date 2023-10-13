@@ -42,7 +42,9 @@ export class UserMongoRepository implements Repository<User> {
   }
 
   async delete(id: string): Promise<void> {
+    debug(id);
     const deletedUser = await UserModel.findByIdAndDelete(id).exec();
+
     if (!deletedUser)
       throw new HttpError(404, 'Not Found', 'User not found in file system', {
         cause: 'Fail to delete',

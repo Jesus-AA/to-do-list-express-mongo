@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-constructor */
+import createDebug from 'debug';
 import { NextFunction, Request, Response } from 'express';
 import { Repository } from '../repository/repository';
 
+const debug = createDebug('PF11:RepoUserMongoRepository');
 export abstract class Controller<T extends { id: string | number }> {
   constructor(protected repo: Repository<T>) {}
 
@@ -36,6 +38,7 @@ export abstract class Controller<T extends { id: string | number }> {
 
   async delete(req: Request, res: Response, next: NextFunction) {
     try {
+      debug(req.params.id);
       await this.repo.delete(req.params.id);
       res.status(204);
       res.json({});
