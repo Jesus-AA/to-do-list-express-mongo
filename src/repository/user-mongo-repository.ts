@@ -26,6 +26,7 @@ export class UserMongoRepository implements Repository<User> {
 
   async create(newData: Omit<User, 'id'>): Promise<User> {
     const newUser = await UserModel.create(newData);
+
     return newUser;
   }
 

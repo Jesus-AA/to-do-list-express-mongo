@@ -29,10 +29,11 @@ export abstract class Controller<T extends { id: string | number }> {
   async create(req: Request, res: Response, next: NextFunction) {
     try {
       const newItem = await this.repo.create(req.body);
+
       res.status(201);
       res.json(newItem);
     } catch (error) {
-      next(error);
+      res.status(500).json(error);
     }
   }
 
@@ -43,7 +44,8 @@ export abstract class Controller<T extends { id: string | number }> {
       res.status(204);
       res.json({});
     } catch (error) {
-      next(error);
+      res.status(500).json(error);
+      next();
     }
   }
 
