@@ -37,7 +37,9 @@ export class TaskController extends Controller<Task> {
   async delete(req: Request, res: Response, next: NextFunction) {
     try {
       const task = await this.repo.getById(req.params.id);
-      const userId = task.author.id;
+
+      const userId = String(task.author);
+      debug(userId);
       const userRepo = new UserMongoRepository();
       const user = await userRepo.getById(userId);
       const newTaskArray = user.tasks.filter(

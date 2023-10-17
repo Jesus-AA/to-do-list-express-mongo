@@ -10,7 +10,6 @@ const taskSchema = new Schema<Task>({
   author: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    unique: true,
   },
   description: {
     type: String,
@@ -20,6 +19,7 @@ const taskSchema = new Schema<Task>({
   },
   isCompleted: {
     type: Boolean,
+    default: false,
   },
   date: {
     type: Date,
