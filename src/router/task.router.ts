@@ -14,3 +14,4 @@ taskRouter.post('/create', taskController.create.bind(taskController));
 taskRouter.get('/', taskController.getAll.bind(taskController));
 taskRouter.get('/:id', taskController.getById.bind(taskController));
 taskRouter.patch('/:id', taskController.update.bind(taskController));
+taskRouter.delete('/:id', taskController.delete.bind(taskController));

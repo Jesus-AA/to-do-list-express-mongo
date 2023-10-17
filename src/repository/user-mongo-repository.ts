@@ -59,7 +59,9 @@ export class UserMongoRepository implements Repository<User> {
     key: string;
     value: string;
   }): Promise<User[]> {
-    const data = await UserModel.find({ [key]: value }).exec();
+    const data = await UserModel.find({ [key]: value })
+      .populate('tasks')
+      .exec();
     return data;
   }
 }
