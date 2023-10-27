@@ -15,7 +15,6 @@ const taskSchema = new Schema<Task>({
     type: String,
     required: true,
     minlength: 10,
-    maxlength: 140,
   },
   isCompleted: {
     type: Boolean,

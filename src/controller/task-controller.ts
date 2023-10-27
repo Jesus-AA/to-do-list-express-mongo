@@ -21,14 +21,12 @@ export class TaskController extends Controller<Task> {
 
       const finalTask = await this.repo.create(req.body);
 
-      user.tasks.push(finalTask);
+      user.tasks.unshift(finalTask);
 
       userRepo.update(user.id, user);
 
-      const finalTask2 = await this.repo.getById(finalTask.id);
-
       res.status(201);
-      res.json(finalTask2);
+      res.json(finalTask);
     } catch (error) {
       next(error);
     }
